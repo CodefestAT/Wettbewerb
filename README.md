@@ -1,2 +1,2 @@
 # Wettbewerb
-All Challenges
+Coding Challenge Solutions from Codefest.at
