@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Benzinrechner</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet" />
+    <link href="http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap-theme.css" rel="stylesheet" />
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/bootstrap.js"></script>
+
+
+
+</head>
+<body class="container">
+    
+    <div class="center-block col-md-4 col-sm-6 col-xs-8" style="float: none;">
+        <h1>Benzinrechner</h1>
+
+        <div class="calculatorRegion">
+
+            <div class="form-group">
+                <label for="fuelInput">Liter getankt:</label>
+                <input class="form-control text-center" id="fuelInput" type="text" />
+            </div>
+            <div class="form-group">
+                <label for="kmInput">KM gefahren:</label>
+                <input class="form-control text-center" id="kmInput" type="text" />
+            </div>
+
+            <div class="form-group">
+                <input class="pushAway btn btn-info center-block" id="calculateButton"
+                       type="button" value="Verbrauch berechnen" onClick="calcConsumption();" />
+            </div>
+            <div class="form-group">
+
+                <label>Verbrauch:</label>
+                <input class="form-control text-center text-danger" id="consumptionInput" type="text" readonly />
+            </div>
+
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        var storage = localStorage; //sessionStorage;
+
+        function calcConsumption() {
+            var fuel = parseFloat($('#fuelInput').val());
+            var km = parseFloat($('#kmInput').val());
+
+            var resultInput = $('#consumptionInput');
+            if (isNaN(fuel) || isNaN(km)) {
+                resultInput.value = '*ERROR*';
+            }
+            else {
+                var consumption = fuel * 100 / km;
+                resultInput.val(consumption.toFixed(2).toString());
+
+                //storage['lastFuel'] = fuel;
+                //storage['lastKm'] = km;
+                var lastConsumption = {
+                    lastFuel: fuel,
+                    lastKm: km
+                };
+
+                storage['lastCalc'] = JSON.stringify(lastConsumption);
+            }
+        }
+
+        $(document).ready(function () {
+            //var lastFuel = storage['lastFuel'];
+            //var lastKm = storage['lastKm'];
+            var lastCalcString = storage['lastCalc'];
+
+            if (lastCalcString != undefined) {
+                //if (lastFuel != undefined) {
+                //document.getElementById('fuelInput').value = lastFuel;
+                //document.getElementById('kmInput').value = lastKm;
+                var lastCalc = JSON.parse(lastCalcString);
+                $('#fuelInput').val(lastCalc.lastFuel);
+                $('#kmInput').val(lastCalc.lastKm);
+            }
+        });
+
+    </script>
+
+</body>
+</html>
