@@ -1,0 +1,19 @@
+﻿<Page
+    x:Class="SpeakClearly.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SpeakClearly"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel>
+            <TextBlock Text="Pronounciation Test" 
+                       TextWrapping="Wrap" Style="{StaticResource TitleTextBlockStyle}" Margin="12,8,12,8"/>
+            <Button x:Name="BtnStartTest" Content="Start Test" Click="BtnStartTest_Click" HorizontalAlignment="Stretch" Margin="12,8,12,0"/>
+            <TextBlock x:Name="TxtScore" Text="Start the test and speak for 7 seconds. I will then tell you how well I understood you!" 
+                       TextWrapping="Wrap" Style="{StaticResource BodyTextBlockStyle}" Margin="12,8,12,0"/>
+        </StackPanel>
+    </Grid>
+</Page>
