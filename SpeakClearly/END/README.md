@@ -9,10 +9,8 @@ A simple Windows 10 demo app showcasing the new Continuous Speech Recognition AP
 
 ## Status
 
-Currently, the example is only a template to get started for the coding challenge at
+This is the solution to Coding Challenge 6 - Speak Clearly found on
 http://www.codefest.at/
-
-The full solution will be made available in mid-January.
 
 
 ## License & Related Information
