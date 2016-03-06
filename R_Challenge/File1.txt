@@ -1,0 +1,4 @@
+Kuerzel,Bundesland,Region
+W,Wien,R1
+ST,Steirmark,R2
+T,Tirol,R3

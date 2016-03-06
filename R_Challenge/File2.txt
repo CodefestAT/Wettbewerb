@@ -1,0 +1,4 @@
+Region,Lokation
+R1,Ost
+R2,Süd
+R3,West
